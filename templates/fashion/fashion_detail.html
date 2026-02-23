@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.brand }} {{ item.name }} - Flipkart Clone{% endblock %}
+
+{% block content %}
+<div style="background: white; padding: 30px; border-radius: 5px;">
+    <h1>{{ item.brand }} {{ item.name }}</h1>
+    {% if item.image %}
+    <img src="{{ item.image.url }}" alt="{{ item.name }}" style="max-width: 400px; margin: 20px 0;">
+    {% endif %}
+    <div class="price">₹{{ item.price }}</div>
+    <h3>Details:</h3>
+    <ul style="margin: 15px 0; line-height: 1.8;">
+        <li>Category: {{ item.get_category_display }}</li>
+        <li>Size: {{ item.size }}</li>
+        <li>Color: {{ item.color }}</li>
+    </ul>
+    <h3>Description:</h3>
+    <p style="margin: 15px 0; line-height: 1.6;">{{ item.description }}</p>
+    <a href="{% url 'fashion:list' %}" style="color: #2874f0; text-decoration: none;">← Back to Fashion</a>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Fashion - Flipkart Clone{% endblock %}
+
+{% block content %}
+<h1>Fashion</h1>
+<div class="product-grid">
+    {% for item in items %}
+    <div class="product-card">
+        {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+        {% else %}
+        <div style="width: 100%; height: 200px; background: #ddd; display: flex; align-items: center; justify-content: center; border-radius: 5px;">No Image</div>
+        {% endif %}
+        <h3>{{ item.brand }} {{ item.name }}</h3>
+        <p>{{ item.category }} | {{ item.size }} | {{ item.color }}</p>
+        <div class="price">₹{{ item.price }}</div>
+        <a href="{% url 'fashion:detail' item.pk %}" style="color: #2874f0; text-decoration: none;">View Details</a>
+    </div>
+    {% empty %}
+    <p>No fashion items available yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

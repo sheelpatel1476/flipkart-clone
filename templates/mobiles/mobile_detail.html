@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ mobile.brand }} {{ mobile.name }} - Flipkart Clone{% endblock %}
+
+{% block content %}
+<div style="background: white; padding: 30px; border-radius: 5px;">
+    <h1>{{ mobile.brand }} {{ mobile.name }}</h1>
+    {% if mobile.image %}
+    <img src="{{ mobile.image.url }}" alt="{{ mobile.name }}" style="max-width: 400px; margin: 20px 0;">
+    {% endif %}
+    <div class="price">₹{{ mobile.price }}</div>
+    <h3>Specifications:</h3>
+    <ul style="margin: 15px 0; line-height: 1.8;">
+        <li>RAM: {{ mobile.ram }}</li>
+        <li>Storage: {{ mobile.storage }}</li>
+        <li>Display: {{ mobile.display }}</li>
+        <li>Battery: {{ mobile.battery }}</li>
+    </ul>
+    <h3>Description:</h3>
+    <p style="margin: 15px 0; line-height: 1.6;">{{ mobile.description }}</p>
+    <a href="{% url 'mobiles:list' %}" style="color: #2874f0; text-decoration: none;">← Back to Mobiles</a>
+</div>
+{% endblock %}

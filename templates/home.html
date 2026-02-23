@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to Flipkart Clone</h1>
+<div style="margin-top: 30px;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+        <a href="{% url 'mobiles:list' %}" style="background: white; padding: 40px; text-decoration: none; color: #333; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2>📱 Mobiles</h2>
+            <p style="margin-top: 10px; color: #666;">Latest smartphones and accessories</p>
+        </a>
+        <a href="{% url 'fashion:list' %}" style="background: white; padding: 40px; text-decoration: none; color: #333; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2>👔 Fashion</h2>
+            <p style="margin-top: 10px; color: #666;">Trending clothes and accessories</p>
+        </a>
+    </div>
+</div>
+{% endblock %}
